@@ -14,6 +14,7 @@ namespace GraphicalTestApp
         {
             get { return _texture.width; }
         }
+
         //The height of the Sprite
         public float Height
         {

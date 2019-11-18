@@ -23,6 +23,9 @@ namespace GraphicalTestApp
         //Run the game loop
         public void Run()
         {
+            Camera2D camera = new Camera2D();
+            camera.zoom = 2;
+
             //Update and draw until the game is over
             while (!RL.WindowShouldClose())
             {
@@ -43,8 +46,10 @@ namespace GraphicalTestApp
 
                 //Draw the active Scene
                 RL.BeginDrawing();
+                RL.BeginMode2D(camera);
                 RL.ClearBackground(Color.BLACK);
                 _root.Draw();
+                RL.EndMode2D();
                 RL.EndDrawing();
             }
 
