@@ -8,26 +8,45 @@ namespace GraphicalTestApp
 {
     class Player : Entity
     {
-        //Create the player entity
-        public Player(float x, float y) : base(12, 76)
-        {
-            //Input.IsKeyPressed(MoveRight, 100); //D
-            //Input.IsKeyPressed(MoveLeft, 97); //A
-            //Input.IsKeyPressed(MoveUp, 119); //W
-            //Input.IsKeyPressed(MoveDown, 115); //S
+        private Sword _sword = new Sword(11, 0);
+        private Actor _swordNode = new Actor();
 
+        //Create the player entity
+        public Player(float x, float y) : base(x, y)
+        {
             OnUpdate += MoveUp;
             OnUpdate += MoveDown;
             OnUpdate += MoveLeft;
             OnUpdate += MoveRight;
+            OnUpdate += SwingSword;
+            _swordNode.AddChild(_sword);
+        }
+
+        public void SwingSword(float deltatime)
+        {
+            if (Input.IsKeyPressed(75))
+            {
+                AddChild(_swordNode);
+                _sword.isSwinging = true;
+                _swordNode.X = 1;
+                _swordNode.Y = 0;
+            }
         }
 
         //Move up one space
         private void MoveUp(float deltaTime)
         {
-            if(Input.IsKeyDown(87))
+            if (Input.IsKeyDown(87))
             {
                 Y -= 100 * deltaTime;
+
+                _swordNode.X = 0;
+                _swordNode.Y = 1;
+
+                _sword.X = 0;
+                _sword.Y = -11;
+
+                _sword.Rotate((float)Math.PI);
             }
         }
 
@@ -37,6 +56,14 @@ namespace GraphicalTestApp
             if (Input.IsKeyDown(83))
             {
                 Y += 100 * deltaTime;
+
+                _swordNode.X = 0;
+                _swordNode.Y = -1;
+
+                _sword.X = 0;
+                _sword.Y = 11;
+
+                _sword.Rotate((float)Math.PI);
             }
         }
 
@@ -46,6 +73,14 @@ namespace GraphicalTestApp
             if (Input.IsKeyDown(65))
             {
                 X -= 100 * deltaTime;
+
+                _swordNode.X = -1;
+                _swordNode.Y = 0;
+
+                _sword.X = -11;
+                _sword.Y = 0;
+
+                _sword.Rotate((float)Math.PI);
             }
         }
 
@@ -55,6 +90,14 @@ namespace GraphicalTestApp
             if (Input.IsKeyDown(68))
             {
                 X += 100 * deltaTime;
+
+                _swordNode.X = 1;
+                _swordNode.Y = 0;
+
+                _sword.X = 11;
+                _sword.Y = 0;
+
+                _sword.Rotate((float)Math.PI);
             }
         }
     }

@@ -7,24 +7,39 @@ namespace GraphicalTestApp
         private Vector3 _velocity = new Vector3();
         private Vector3 _acceleration = new Vector3();
 
+        //Implement velocity on the X axis
         public float XVelocity
         {
-            //## Implement velocity on the X axis ##//
-            get { return 0; }
-            set { }
+            get
+            {
+                return _velocity.x;
+            }
+            set
+            {
+                _velocity.x = value;
+            }
         }
+
         public float XAcceleration
         {
             //## Implement acceleration on the X axis ##//
             get { return 0; }
             set { }
         }
+
+        //Implemeny velocity on the Y axis
         public float YVelocity
         {
-            //## Implement velocity on the Y axis ##//
-            get { return 0; }
-            set { }
+            get
+            {
+                return _velocity.y;
+            }
+            set
+            {
+                _velocity.y = value;
+            }
         }
+
         public float YAcceleration
         {
             //## Implement acceleration on the Y axis ##//

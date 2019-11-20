@@ -10,8 +10,7 @@ namespace GraphicalTestApp
     {
         private Sprite _sprite;
         private AABB _hitbox;
-
-        //Sprite swordGraphic = new Sprite("Sprites/People/Sword.png");
+        public bool isSwinging;
 
         private int _damage = 5;
 
@@ -23,22 +22,28 @@ namespace GraphicalTestApp
             }
         }
 
-        public Sword(float x, float y) : base(12, 76)
+        public Sword(float x, float y) : base(x, y)
         {
-            OnStart += CreateSword;
+            _sprite = new Sprite("Sprites/Weapons/Sword.png");
+            AddChild(_sprite);
+            OnUpdate += RotateSword;
         }
 
-        //Add sword to the scene
-        private void CreateSword()
+        //Rotate the sword and remove sword
+        public void RotateSword(float deltaTime)
         {
-            Sword _sword = new Sword(14, 78);
-            Sprite swordGraphic = new Sprite("Sprites/People/Sword.png");
-        }
+            if (isSwinging)
+            {
+                Rotate(1.5f * deltaTime);
+                if (GetRotationAbsolute() >= 1.5f)
+                {
+                    isSwinging = false;
 
-        //remove sword from the scene
-        private void DetachSword()
-        {
-            
+                    //Removes the swordnode from the player
+                    Parent.Parent.RemoveChild(Parent);
+                    Rotate(-1.5f);
+                }
+            }
         }
     }
 }
