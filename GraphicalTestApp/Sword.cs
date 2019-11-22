@@ -34,8 +34,8 @@ namespace GraphicalTestApp
         {
             if (isSwinging)
             {
-                Rotate(1.5f * deltaTime);
-                if (GetRotationAbsolute() >= 1.5f)
+                Rotate(5f * deltaTime);
+                if (GetRotation() >= 2)
                 {
                     isSwinging = false;
 
