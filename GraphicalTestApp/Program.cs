@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Raylib;
 
 namespace GraphicalTestApp
 {
@@ -14,13 +15,18 @@ namespace GraphicalTestApp
 
             Actor root = new Actor();
             game.Root = root;
-            
 
-            Player player = new Player(12, 76);
-            Sprite playerGraphic = new Sprite("Sprites/People/Player.png");
-            player.AddChild(playerGraphic);
+            Room startingRoom = new Room();
 
-            root.AddChild(player);
+            startingRoom.LoadRoom("Rooms/StartingRoom.txt");
+
+            //root.AddChild();
+
+            //Player player = new Player(12, 76);
+            //Sprite playerGraphic = new Sprite("Sprites/People/Player.png");
+            //player.AddChild(playerGraphic);
+
+            //root.AddChild(player);
 
             //## Set up game here ##//
 
