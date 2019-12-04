@@ -4,6 +4,8 @@ namespace GraphicalTestApp
 {
     class AABB : Actor
     {
+        Raylib.Color _color = Raylib.Color.MAGENTA;
+
         public float Width { get; set; } = 1;
         public float Height { get; set; } = 1;
 
@@ -55,7 +57,7 @@ namespace GraphicalTestApp
         {
             Raylib.Rectangle rec = new Raylib.Rectangle( Left, Top, Width, Height);
                
-            Raylib.Raylib.DrawRectangleLinesEx(rec, 5, Raylib.Color.MAGENTA);
+            Raylib.Raylib.DrawRectangleLinesEx(rec, 1, _color);
             base.Draw();
         }
     }

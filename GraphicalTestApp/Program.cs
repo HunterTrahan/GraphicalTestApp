@@ -15,22 +15,25 @@ namespace GraphicalTestApp
 
             Actor root = new Actor();
             game.Root = root;
+           
 
             Room startingRoom = new Room();
 
             startingRoom.LoadRoom("Rooms/StartingRoom.txt");
 
-            //root.AddChild();
+            game.Root = startingRoom;
 
-            //Player player = new Player(12, 76);
-            //Sprite playerGraphic = new Sprite("Sprites/People/Player.png");
-            //player.AddChild(playerGraphic);
+           //root.AddChild();
 
-            //root.AddChild(player);
+           //Player player = new Player(12, 76);
+           //Sprite playerGraphic = new Sprite("Sprites/People/Player.png");
+           //player.AddChild(playerGraphic);
 
-            //## Set up game here ##//
+           //root.AddChild(player);
 
-            game.Run();
+           //## Set up game here ##//
+
+           game.Run();
         }
     }
 }

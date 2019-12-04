@@ -28,17 +28,6 @@ namespace GraphicalTestApp
 
         //Grid
         private bool[,] _collision;
-
-        public Room() : this(12, 6)
-        {
-
-        }
-
-        public Room(int x, int y)
-        {
-            //Create the collision grid
-            _collision = new bool[x, y];
-        }
         
         //returns whether there is a solid entity at the point
         public bool GetCollosion(float x, float y)
@@ -70,6 +59,9 @@ namespace GraphicalTestApp
             RoomSize.x = width;
             RoomSize.y = height;
 
+            //Create the collision grid
+            _collision = new bool[width, height];
+
             for (int y = 0; y < height; y++)
             {
                 string row = reader.ReadLine();
@@ -81,25 +73,32 @@ namespace GraphicalTestApp
                         case '1':
                             //Create and add a Wall
                             _collision[x, y] = true;
+                            Sprite WallSprite = new Sprite("Sprites/Walls/StoneWall.png");
+                            WallSprite.X = x * GridSize.x;
+                            WallSprite.Y = y * GridSize.y;
 
+                            AddChild(WallSprite);
                             break;
 
                         case '@':
-                            //Create and add a Player
+                            //Create and add a Player to the room
                             Player p = new Player(x * GridSize.x, y * GridSize.y);
                             Sprite playerGraphic = new Sprite("Sprites/People/Player.png");
                             p.AddChild(playerGraphic);
+                            p.CurrentRoom = this;
 
                             AddChild(p);
                             break;
 
-                        //case 'e':
-                        //    //Create and add a Wall
-                        //    Enemy e = new Enemy();
-                        //    e.X = x * GridSize.x;
-                        //    e.Y = y * GridSize.y;
-                        //    AddChild(e);
-                        //    break;
+                        case 'e':
+                            //Create and add a Enemy to the room
+                            Enemy e = new Enemy(x * GridSize.x, y * GridSize.y);
+                            Sprite EnemyGraphic = new Sprite("Sprites/Enemies/Rat.png");
+                            e.AddChild(EnemyGraphic);
+                            e.CurrentRoom = this;
+
+                            AddChild(e);
+                            break;
 
                     }
                 }

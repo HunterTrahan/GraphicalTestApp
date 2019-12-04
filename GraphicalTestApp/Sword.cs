@@ -9,7 +9,7 @@ namespace GraphicalTestApp
     class Sword : Entity
     {
         private Sprite _sprite;
-        private AABB _hitbox;
+        private AABB _hitbox = new AABB(16, 16);
         public bool isSwinging;
 
         private int _damage = 5;
@@ -27,6 +27,7 @@ namespace GraphicalTestApp
             _sprite = new Sprite("Sprites/Weapons/Sword.png");
             AddChild(_sprite);
             OnUpdate += RotateSword;
+            AddChild(_hitbox);
         }
 
         //Rotate the sword and remove sword
