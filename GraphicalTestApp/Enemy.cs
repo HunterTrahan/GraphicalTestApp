@@ -8,11 +8,16 @@ namespace GraphicalTestApp
 {
     class Enemy : Entity
     {
+        //Refrences the facing direction
         private Direction _facing;
-        //private float _speed = 100;
+
+        //Creates the hitbox for the enemy
         private AABB _hitbox = new AABB(16, 16);
+
+        //Refrences the current room the enemy is in
         public Room CurrentRoom;
 
+        //Creates the Enemy entity
         public Enemy(float x, float y) : base(x, y)
         {
             _facing = Direction.North;
@@ -20,6 +25,7 @@ namespace GraphicalTestApp
             AddChild(_hitbox);
         }
 
+        //defines what it is to move
         private void Move(float deltaTime)
         {
             switch (_facing)
@@ -42,6 +48,7 @@ namespace GraphicalTestApp
             }
         }
 
+        //Enemy moves up
         private void MoveUp(float deltaTime)
         {
             if(!CurrentRoom.GetCollosion(X, _hitbox.Top))
@@ -54,6 +61,7 @@ namespace GraphicalTestApp
             }
         }
 
+        //Enemy moves down
         private void MoveDown(float deltaTime)
         {
             if(!CurrentRoom.GetCollosion(X, _hitbox.Bottom))
@@ -66,6 +74,7 @@ namespace GraphicalTestApp
             }
         }
 
+        //Enemy moves left
         private void MoveLeft(float deltaTime)
         {
             if(!CurrentRoom.GetCollosion(_hitbox.Left, Y))
@@ -78,6 +87,7 @@ namespace GraphicalTestApp
             }
         }
 
+        //Enemy moves right
         private void MoveRight(float deltaTime)
         {
             if(!CurrentRoom.GetCollosion(_hitbox.Right, Y))

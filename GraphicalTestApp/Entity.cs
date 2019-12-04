@@ -56,7 +56,7 @@ namespace GraphicalTestApp
 
         public override void Update(float deltaTime)
         {
-            //## Calculate velocity from acceleration ##//  
+            //## Calculate velocity from acceleration ##//
 
             //## Calculate position from velocity ##//
             X += _velocity.x;

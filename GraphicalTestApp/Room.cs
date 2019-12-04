@@ -7,6 +7,7 @@ using System.IO;
 
 namespace GraphicalTestApp
 {
+    //Defines the directions
     enum Direction
     {
         North,

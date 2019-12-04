@@ -8,9 +8,16 @@ namespace GraphicalTestApp
 {
     class Player : Entity
     {
+        //Creates the sword
         private Sword _sword = new Sword(11, 0);
+
+        //Creates the sword node which handles the sword
         private Actor _swordNode = new Actor();
+
+        //Creates the hitbox
         private AABB _hitbox = new AABB(16, 16);
+
+        //Refrences the current room the player is in
         public Room CurrentRoom;
 
         //Create the player entity
@@ -25,6 +32,7 @@ namespace GraphicalTestApp
             AddChild(_hitbox);
         }
 
+        //Player swings the sword
         public void SwingSword(float deltatime)
         {
             if (Input.IsKeyPressed(75))
