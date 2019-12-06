@@ -72,13 +72,19 @@ namespace GraphicalTestApp
                     switch (tile)
                     {
                         case '1':
-                            //Create and add a Wall
+                            //Create and add a Wall and its hitbox
                             _collision[x, y] = true;
                             Sprite WallSprite = new Sprite("Sprites/Walls/StoneWall.png");
                             WallSprite.X = x * GridSize.x;
                             WallSprite.Y = y * GridSize.y;
 
+                             //Creates the hitbox
+                             AABB _hitbox = new AABB(16, 16);
+                            _hitbox.X = x * GridSize.x + 8;
+                            _hitbox.Y = y * GridSize.y + 8;
+
                             AddChild(WallSprite);
+                            AddChild(_hitbox);
                             break;
 
                         case '@':

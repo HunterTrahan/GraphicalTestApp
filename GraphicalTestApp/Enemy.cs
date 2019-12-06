@@ -17,6 +17,9 @@ namespace GraphicalTestApp
         //Refrences the current room the enemy is in
         public Room CurrentRoom;
 
+        //Defines a enemies base damage
+        private int _damage = 5;
+
         //Creates the Enemy entity
         public Enemy(float x, float y) : base(x, y)
         {
@@ -25,8 +28,14 @@ namespace GraphicalTestApp
             AddChild(_hitbox);
         }
 
+        public int GetDamage()
+        {
+            return _damage;
+        }
+
         //defines what it is to move
-        private void Move(float deltaTime)
+        //---needs to be virtual---
+        private virtual Move(float deltaTime)
         {
             switch (_facing)
             {

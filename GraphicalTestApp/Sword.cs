@@ -49,8 +49,9 @@ namespace GraphicalTestApp
                     isSwinging = false;
 
                     //Removes the swordnode from the player
-                    Parent.Parent.RemoveChild(Parent);
                     Rotate(-1.5f);
+                    Parent.Parent.RemoveChild(Parent);
+                    
                 }
             }
         }
