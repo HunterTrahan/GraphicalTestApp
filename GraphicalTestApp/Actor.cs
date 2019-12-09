@@ -116,13 +116,14 @@ namespace GraphicalTestApp
             child.Parent = this;
 
             //Add new child to collection
-            _children.Add(child);
+            _additions.Add(child);
         }
 
         //Implement RemoveChild(Actor)
         public void RemoveChild(Actor child)
         {
             _removals.Add(child);
+            child.Parent = null;
         }
 
         //Implment UpdateTransform()
@@ -185,7 +186,6 @@ namespace GraphicalTestApp
                 bool isMyChild = _children.Remove(a);
                 if (isMyChild)
                 {
-                    a.Parent = null;
                     a._localTransform = a._globalTransform;
                 }
             }

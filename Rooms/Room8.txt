@@ -1,0 +1,13 @@
+16
+11
+1111111111111111
+1wwwwwwwwwwwwww1
+1wr000w000wwwrw1
+1w0ww0w0w000w0w1
+1w0ww0w0www0w0w1
+@00ww0w0www0w000
+1w0ww0w0wwwrw0w1
+1w0ww000www0w0w1
+1w0ww000www000w1
+1wwwwwwwwwwwwww1
+1111111111111111

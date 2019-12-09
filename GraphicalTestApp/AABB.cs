@@ -40,16 +40,18 @@ namespace GraphicalTestApp
             Height = height;
         }
 
+        //Implement DetectCollision(AABB)
         public bool DetectCollision(AABB other)
         {
-            //## Implement DetectCollision(AABB) ##//
-            return false;
+            return !(Bottom < other.Top || Right < other.Left ||
+                Top > other.Bottom || Left > other.Right);
         }
-
+        
+        //Implement DetectCollision(Vector3)
         public bool DetectCollision(Vector3 point)
         {
-            //## Implement DetectCollision(Vector3) ##//
-            return false;
+            return !(point.y < Top || point.x < Left ||
+                point.y > Bottom || point.y > Right);
         }
 
         //Draw the bounding box to the screen

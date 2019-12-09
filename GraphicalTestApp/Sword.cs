@@ -12,13 +12,21 @@ namespace GraphicalTestApp
         private Sprite _sprite;
 
         //Create the hitbox for the sword
-        private AABB _hitbox = new AABB(16, 16);
+        public AABB _hitbox = new AABB(16, 16);
 
         //Determines if the sword is swinging or not
         public bool isSwinging;
 
         //swords damage
         private int _damage = 5;
+
+        //Instance the sword
+        private static Sword _instance;
+
+        public static Sword Instance
+        {
+            get { return _instance; }
+        }
 
         //Gets the swords damage
         public int Damage
@@ -34,6 +42,7 @@ namespace GraphicalTestApp
         {
             _sprite = new Sprite("Sprites/Weapons/Sword.png");
             AddChild(_sprite);
+            _instance = this;
             OnUpdate += RotateSword;
             AddChild(_hitbox);
         }
