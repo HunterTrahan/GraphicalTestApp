@@ -17,9 +17,6 @@ namespace GraphicalTestApp
         //Refrences the current room the enemy is in
         public Room CurrentRoom;
 
-        //Defines a enemies base damage
-        private int _damage = 5;
-
         //Define a enemies base health
         protected int _health = 10;
 
@@ -36,12 +33,6 @@ namespace GraphicalTestApp
             OnUpdate += Move;
             OnUpdate += Touch;
             AddChild(_hitbox);
-        }
-
-        //Gets the enemies damage
-        public virtual int GetDamage()
-        {
-            return _damage;
         }
 
         //Checks if the enemy has touched the sword

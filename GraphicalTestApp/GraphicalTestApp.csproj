@@ -48,8 +48,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Actor.cs" />
+    <Compile Include="Dragon.cs" />
     <Compile Include="Enemy.cs" />
     <Compile Include="Entity.cs" />
+    <Compile Include="Fireball.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="AABB.cs" />
     <Compile Include="Input.cs" />

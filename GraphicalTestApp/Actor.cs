@@ -25,8 +25,7 @@ namespace GraphicalTestApp
 
         //Implement the relative X coordinate
         public float X
-        {
-            
+        {   
             get
             {
                 return _localTransform.m13;

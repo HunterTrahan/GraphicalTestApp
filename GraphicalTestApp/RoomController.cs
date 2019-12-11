@@ -9,28 +9,29 @@ namespace GraphicalTestApp
 {
     class RoomController : Actor
     {
+        //Creates an array of rooms
         public static Room[] Rooms = new Room[12];
 
+        //Creates a grid size
         private Vector3 GridSize = new Vector3(16, 16, 0);
+
+        //Creates a room size
         private Vector3 RoomSize = new Vector3(16, 11, 0);
 
+        //Defines what a room controller does
         public RoomController()
         {
             Startup();
-
         }
 
         //Grid
         private bool[,] _collision;
 
-
         //Room List
         public Room StartingRoom = new Room();
         Room Room2 = new Room();
         Room Room3 = new Room();
-
         Room Room4 = new Room();
-
         Room Room5 = new Room();
         Room Room6 = new Room();
         Room Room7 = new Room();
@@ -80,8 +81,8 @@ namespace GraphicalTestApp
             Room9.South = Rooms[6];
             Room9.East = Rooms[7];
 
-            Room10.West = Rooms[10];
-            Room10.East = Rooms[7];
+            Room10.West = Rooms[7];
+            Room10.East = Rooms[10];
 
             Room11.North = Rooms[11];
             Room11.West = Rooms[9];
@@ -128,31 +129,6 @@ namespace GraphicalTestApp
                             room.AddChild(_hitbox);
                             break;
 
-                        case 'w':
-                            //Create and add a Wall and its hitbox
-                            Sprite WaterSprite = new Sprite("Sprites/Walls/Water.png");
-                            WaterSprite.X = x * GridSize.x;
-                            WaterSprite.Y = y * GridSize.y;
-
-                            //Creates the hitbox
-                            AABB hitbox = new AABB(16, 16);
-                            hitbox.X = x * GridSize.x + 8;
-                            hitbox.Y = y * GridSize.y + 8;
-
-                            room.AddChild(WaterSprite);
-                            room.AddChild(hitbox);
-                            break;
-
-                        //case '@':
-                        //    //Create and add a Player to the room
-                        //    Player p = new Player(x * GridSize.x, y * GridSize.y);
-                        //    Sprite playerGraphic = new Sprite("Sprites/People/Player.png");
-                        //    p.AddChild(playerGraphic);
-                        //    p.CurrentRoom = this;
-
-                        //    room.AddChild(p);
-                        //    break;
-
                         case 'r':
                             //Create and add a Rat to the room
                             Rat r = new Rat(x * GridSize.x, y * GridSize.y);
@@ -162,6 +138,17 @@ namespace GraphicalTestApp
                             room._collision = _collision;
 
                             room.AddChild(r);
+                            break;
+
+                        case 'd':
+                            //Create and add a Dragon to the room
+                            Dragon d = new Dragon(x * GridSize.x, y * GridSize.y);
+                            Sprite DragonGraphic = new Sprite("Sprites/Enemies/Dragon.png");
+                            d.AddChild(DragonGraphic);
+                            d.CurrentRoom = room;
+                            room._collision = _collision;
+
+                            room.AddChild(d);
                             break;
 
                     }

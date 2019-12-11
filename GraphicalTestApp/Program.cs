@@ -11,7 +11,7 @@ namespace GraphicalTestApp
     {
         static void Main(string[] args)
         {
-            //Set up game here
+            //Sets up game here
             Game game = new Game(1280, 760, "Graphical Test Application");
 
             Actor root = new Actor();
@@ -29,9 +29,7 @@ namespace GraphicalTestApp
             CurrentRoom.LoadRoom(RoomController.Rooms[1], "Rooms/Room2.txt");
             CurrentRoom.LoadRoom(RoomController.Rooms[2], "Rooms/Room3.txt");
             CurrentRoom.LoadRoom(RoomController.Rooms[3], "Rooms/Room4.txt");
-
             CurrentRoom.LoadRoom(RoomController.Rooms[4], "Rooms/Room5.txt");
-
             CurrentRoom.LoadRoom(RoomController.Rooms[5], "Rooms/Room6.txt");
             CurrentRoom.LoadRoom(RoomController.Rooms[6], "Rooms/Room7.txt");
             CurrentRoom.LoadRoom(RoomController.Rooms[7], "Rooms/Room8.txt");

@@ -69,7 +69,8 @@ namespace GraphicalTestApp
         public override void Update(float deltaTime)
         {
             //## Calculate velocity from acceleration ##//
-
+            _velocity.x = _velocity.x + _acceleration.x * deltaTime;
+            _velocity.y = _velocity.y + _acceleration.y * deltaTime;
             //## Calculate position from velocity ##//
             X += _velocity.x;
             Y += _velocity.y;

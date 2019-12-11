@@ -18,7 +18,10 @@ namespace GraphicalTestApp
 
     class Room : Actor
     {
+        //Creates a grid size
         private Vector3 GridSize = new Vector3(16, 16, 0);
+
+        //Creates a room size
         private Vector3 RoomSize = new Vector3(16, 11, 0);
 
         //Rooms connected to this one
