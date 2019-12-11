@@ -15,8 +15,7 @@ namespace GraphicalTestApp
         //Create the dragon entity
         public Dragon(float x, float y) : base(x, y)
         {
-            stopwatch.Start();
-            //OnUpdate += Move;   
+            stopwatch.Start();   
             OnUpdate += FireBall;
         }
 
@@ -27,7 +26,12 @@ namespace GraphicalTestApp
             {
                 Fireball ballfire = new Fireball(16, 16);
 
-                ballfire.XAcceleration = -0.01f;
+                Vector3 Dposition = new Vector3(X,Y,1);
+                Vector3 Pposition = new Vector3(Player.Instance.X, Player.Instance.Y, 1);
+                Vector3 Direction = Dposition - Pposition;
+
+                ballfire.XAcceleration = -0.0001f * Direction.x;
+                ballfire.YAcceleration = -0.0001f * Direction.y;
 
                 ballfire.X = X - 1;
                 ballfire.Y = Y - 1;

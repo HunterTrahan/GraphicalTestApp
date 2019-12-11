@@ -4,10 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace GraphicalTestApp
 {
     class Sword : Entity
     {
+
         //Refrence to the sprite
         private Sprite _sprite;
 

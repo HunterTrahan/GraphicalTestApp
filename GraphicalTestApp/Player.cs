@@ -68,7 +68,7 @@ namespace GraphicalTestApp
         //Player swings the sword
         public void SwingSword(float deltatime)
         {
-            if (Input.IsKeyPressed(75))
+            if (Input.IsKeyPressed(32))
             {
                 AddChild(_swordNode);
                 _sword.isSwinging = true;
