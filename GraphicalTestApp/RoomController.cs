@@ -24,7 +24,7 @@ namespace GraphicalTestApp
             Startup();
         }
 
-        //Grid
+        //creates the Grid
         private bool[,] _collision;
 
         //Room List
@@ -41,7 +41,7 @@ namespace GraphicalTestApp
         Room Room11= new Room();
         Room Room12= new Room();
        
-
+        //Initiates the rooms and adds them into the game
         public void Startup()
         {
             Rooms[0] = StartingRoom;

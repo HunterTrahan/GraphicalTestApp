@@ -24,13 +24,13 @@ namespace GraphicalTestApp
         //Creates a room size
         private Vector3 RoomSize = new Vector3(16, 11, 0);
 
-        //Rooms connected to this one
+        //Refrences to the room
         private Room _north;
         private Room _south;
         private Room _east;
         private Room _west;
 
-        //Grid
+        //creates the Grid
         public bool[,] _collision;
 
         //returns whether there is a solid entity at the point
